@@ -1,0 +1,11 @@
+extends ../layout.jade
+
+block content
+  h1 Create a New User
+  p#errorMsg= error ? '#{error.message}' : ''
+  p#successMsg= user ? 'User ' + user.name + ' created!' : ''
+  form(method="POST", action='/users/addNewUser')
+    p: input(type='text', name='name', placeholder='Name', minlength='1', required)  
+    p: input(type='text', name='sso', placeholder='SSO', size='9', minlength='9', maxlength='9', required)  
+    p: input(type='text', name='pin', placeholder='PIN', size='4', minlength='4', maxlength='4', required)
+    p: input(type='submit', value='Add User')  
